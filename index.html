@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+
+  <!-- Tooltip trigger -->
+  <button class="has-tooltip" data-tooltip-id="tooltip1">
+    Hover or focus me
+  </button>
+   <button class="has-tooltip" data-tooltip-id="tooltip2">
+    Hover or focus me
+  </button>
+
+  <!-- Tooltip element -->
+  <div id="tooltip1" class="tooltip" role="tooltip">
+    <!-- Optional decorative arrow -->
+    <div class="tooltip__arrow"></div>
+
+    <div class="tooltip__body">
+      <div class="tooltip__header">
+        <div class="tooltip__title">
+          <div class="tooltip__icon">
+            <!-- Example icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+              <path
+                d="M6.21258 4.05957L7.32231 7.3085L10.3213 8.5107L7.32231 9.7129L6.21258 12.9618L5.10284 9.7129L2.10384 8.5107L5.10284 7.3085L6.21258 4.05957Z"
+                fill="#9511C6" />
+              <path
+                d="M11.5096 1.39298L12.2494 3.64225L14.2488 4.47452L12.2494 5.30685L11.5096 7.55612L10.7698 5.30685L8.77051 4.47452L10.7698 3.64225L11.5096 1.39298Z"
+                fill="#9511C6" />
+              <path
+                d="M12.843 8.72623L13.5829 10.9755L15.5822 11.8078L13.5829 12.64L12.843 14.8893L12.1032 12.64L10.1038 11.8078L12.1032 10.9755L12.843 8.72623Z"
+                fill="#9511C6" />
+            </svg>
+          </div>
+          <span>Generiert mit KI</span>
+        </div>
+        <button type="button" class="tooltip__close" data-tooltip-close aria-label="Close tooltip">
+          <!-- Close icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              d="M12 0.940584L11.0528 6.10352e-05L5.99666 5.0562L0.940523 6.10352e-05L0 0.940584L5.05614 5.99673L0 11.0529L0.940523 12.0001L5.99666 6.94392L11.0528 12.0001L12 11.0529L6.94386 5.99673L12 0.940584Z"
+              fill="#333333" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="tooltip__content">
+        <p>Diese Information wurde im Beschreibungstext gefunden:</p>
+        <ul>
+          <li>"[...] Das Haus mit <span class="bold">Balkon</span> erstreckt sich über 5 lichtdurchflutete Zimmer [...]"
+          </li>
+        </ul>
+      </div>
+
+      <!-- Read more link -->
+      <a href="#" class="tooltip__read-more">Lese die ganze Beschreibung</a>
+    </div>
+
+  </div>
+
+   <div id="tooltip2" class="tooltip" role="tooltip">
+    <!-- Optional decorative arrow -->
+    <div class="tooltip__arrow"></div>
+
+    <div class="tooltip__body">
+      <div class="tooltip__header">
+        <div class="tooltip__title">
+          <div class="tooltip__icon">
+            <!-- Example icon SVG -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+              <path
+                d="M6.21258 4.05957L7.32231 7.3085L10.3213 8.5107L7.32231 9.7129L6.21258 12.9618L5.10284 9.7129L2.10384 8.5107L5.10284 7.3085L6.21258 4.05957Z"
+                fill="#9511C6" />
+              <path
+                d="M11.5096 1.39298L12.2494 3.64225L14.2488 4.47452L12.2494 5.30685L11.5096 7.55612L10.7698 5.30685L8.77051 4.47452L10.7698 3.64225L11.5096 1.39298Z"
+                fill="#9511C6" />
+              <path
+                d="M12.843 8.72623L13.5829 10.9755L15.5822 11.8078L13.5829 12.64L12.843 14.8893L12.1032 12.64L10.1038 11.8078L12.1032 10.9755L12.843 8.72623Z"
+                fill="#9511C6" />
+            </svg>
+          </div>
+          <span>Generiert mit KI</span>
+        </div>
+        <button type="button" class="tooltip__close" data-tooltip-close aria-label="Close tooltip">
+          <!-- Close icon SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path
+              d="M12 0.940584L11.0528 6.10352e-05L5.99666 5.0562L0.940523 6.10352e-05L0 0.940584L5.05614 5.99673L0 11.0529L0.940523 12.0001L5.99666 6.94392L11.0528 12.0001L12 11.0529L6.94386 5.99673L12 0.940584Z"
+              fill="#333333" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="tooltip__content">
+        <p>Diese Information wurde im Beschreibungstext gefunden:</p>
+        <ul>
+          <li>"[...] Das Haus mit <span class="bold">Balkon</span> erstreckt sich über 5 lichtdurchflutete Zimmer [...]"
+          </li>
+        </ul>
+      </div>
+
+      <!-- Read more link -->
+      <a href="#" class="tooltip__read-more">Lese die ganze Beschreibung</a>
+    </div>
+
+  </div>
+  <script>
+const initTooltipSystem = () => {
+  // Check for required API support
+  if (!window || !document || !Element.prototype.addEventListener) {
+    console.error('Browser does not support required APIs for tooltips');
+    return false;
+  }
+
+  // Configuration constants
+  const OFFSET = 20;      // px between trigger and tooltip
+  const HIDE_DELAY = 300; // ms delay before hiding
+
+  class Tooltip {
+    constructor(trigger) {
+      if (!(trigger instanceof Element)) {
+        throw new TypeError('Tooltip trigger must be a DOM Element');
+      }
+      
+      const id = trigger?.dataset?.tooltipId;
+      if (!id) {
+        console.warn('Trigger missing data-tooltip-id attribute', trigger);
+        return;
+      }
+      
+      this.tooltip = document.getElementById(id);
+      if (!this.tooltip) {
+        console.warn(`No tooltip element found for trigger [data-tooltip-id="${id}"]`);
+        return;
+      }
+      
+      this.trigger = trigger;
+      this.hideTimeout = null;
+
+      // Initially hide and set ARIA attributes
+      this.tooltip.hidden = true;
+      this.tooltip.setAttribute('aria-hidden', 'true');
+      this.trigger.setAttribute('aria-describedby', this.tooltip.id);
+
+      this._bindEvents();
+    }
+
+    _bindEvents() {
+      try {
+        // SHOW: on hover or focus
+        this.trigger.addEventListener('mouseenter', this._show);
+        this.trigger.addEventListener('focus', this._show);
+
+        // HIDE: leaving trigger (unless into tooltip) or blur
+        this.trigger.addEventListener('mouseleave', e => {
+          if (this.tooltip.contains(e.relatedTarget)) return;
+          this._hide();
+        });
+        this.trigger.addEventListener('blur', this._hide);
+
+        // Keep open when pointer enters tooltip, hide when it leaves
+        this.tooltip.addEventListener('mouseenter', this._show);
+        this.tooltip.addEventListener('mouseleave', e => {
+          if (this.trigger.contains(e.relatedTarget)) return;
+          this._hide();
+        });
+
+        // Block clicks inside tooltip from bubbling out
+        this.tooltip.addEventListener('click', e => {
+          e.stopPropagation();
+        });
+
+        // Document-level click: close if click is outside
+        document.addEventListener('click', this._onDocumentClick);
+
+        // ESC key closes
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape' && this.tooltip.hasAttribute('data-show')) {
+            this._hideImmediate();
+            this.trigger.focus();
+          }
+        });
+      } catch (err) {
+        console.error('Error binding tooltip events:', err);
+      }
+    }
+
+    // Click outside handler
+    _onDocumentClick = e => {
+      if (!this.tooltip.hasAttribute('data-show')) return;
+      if (this.trigger.contains(e.target) || this.tooltip.contains(e.target)) return;
+      this._hideImmediate();
+    };
+
+    // Show tooltip
+    _show = () => {
+      try {
+        clearTimeout(this.hideTimeout);
+        this.tooltip.hidden = false;
+        this.tooltip.setAttribute('data-show', '');
+        this.tooltip.setAttribute('aria-hidden', 'false');
+        requestAnimationFrame(this._position);
+      } catch (err) {
+        console.error('Error showing tooltip:', err);
+      }
+    };
+
+    // Schedule hide
+    _hide = () => {
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = setTimeout(this._hideImmediate, HIDE_DELAY);
+    };
+
+    // Hide immediately
+    _hideImmediate = () => {
+      try {
+        clearTimeout(this.hideTimeout);
+        this.tooltip.removeAttribute('data-show');
+        this.tooltip.setAttribute('aria-hidden', 'true');
+        this.tooltip.hidden = true;
+      } catch (err) {
+        console.error('Error hiding tooltip:', err);
+      }
+    };
+
+    // Positioning logic
+    _position = () => {
+      try {
+        if (!this.tooltip || !this.trigger) return;
+        
+        const t = this.trigger.getBoundingClientRect();
+        const p = this.tooltip.getBoundingClientRect();
+        const scrollY = window.scrollY || window.pageYOffset || 0;
+        const scrollX = window.scrollX || window.pageXOffset || 0;
+        const vw = document.documentElement.clientWidth || window.innerWidth || 0;
+        const vh = document.documentElement.clientHeight || window.innerHeight || 0;
+
+        const placements = [
+          { name: 'top',    top: t.top + scrollY - p.height - OFFSET,   left: t.left + scrollX + (t.width - p.width) / 2, fits: t.top >= p.height + OFFSET },
+          { name: 'bottom', top: t.bottom + scrollY + OFFSET,           left: t.left + scrollX + (t.width - p.width) / 2, fits: vh - t.bottom >= p.height + OFFSET },
+          { name: 'left',   top: t.top + scrollY + (t.height - p.height) / 2, left: t.left + scrollX - p.width - OFFSET,  fits: t.left >= p.width + OFFSET },
+          { name: 'right',  top: t.top + scrollY + (t.height - p.height) / 2, left: t.right + scrollX + OFFSET,           fits: vw - t.right >= p.width + OFFSET }
+        ];
+        
+        const place = placements.find(x => x.fits) || placements[0];
+
+        const top = Math.max(scrollY + 8, Math.min(place.top, scrollY + vh - p.height - 8));
+        const left = Math.max(scrollX + 8, Math.min(place.left, scrollX + vw - p.width - 8));
+
+        Object.assign(this.tooltip.style, { top: `${top}px`, left: `${left}px` });
+        
+        // Remove previous positioning classes and add new one
+        this.tooltip.classList.remove('tooltip--top', 'tooltip--bottom', 'tooltip--left', 'tooltip--right');
+        this.tooltip.classList.add(`tooltip--${place.name}`);
+
+        // Position the arrow
+        const arrow = this.tooltip.querySelector('.tooltip__arrow');
+        if (arrow) {
+          // Reset old styles
+          arrow.style.top = arrow.style.left = arrow.style.bottom = arrow.style.right = '';
+          
+          if (place.name === 'top' || place.name === 'bottom') {
+            const arrowLeft = Math.max(12, t.left + t.width / 2 - left - arrow.offsetWidth / 2);
+            arrow.style.left = `${arrowLeft}px`;
+            
+            if (place.name === 'top') {
+              arrow.style.bottom = `-${arrow.offsetHeight / 2}px`;
+            } else {
+              arrow.style.top = `-${arrow.offsetHeight / 2}px`;
+            }
+          } else {
+            const arrowTop = Math.max(12, t.top + t.height / 2 - top - arrow.offsetHeight / 2);
+            arrow.style.top = `${arrowTop}px`;
+            
+            if (place.name === 'left') {
+              arrow.style.right = `-${arrow.offsetWidth / 2}px`;
+            } else {
+              arrow.style.left = `-${arrow.offsetWidth / 2}px`;
+            }
+          }
+          
+          arrow.style.transform = 'rotate(45deg)';
+        }
+      } catch (err) {
+        console.error('Error positioning tooltip:', err);
+      }
+    };
+  }
+
+  // Initialize all tooltips on the page
+  const initTooltips = () => {
+    try {
+      const triggers = document.querySelectorAll('.has-tooltip');
+      if (triggers.length === 0) {
+        console.info('No elements with .has-tooltip class found');
+      }
+      
+      triggers.forEach(trigger => {
+        try {
+          new Tooltip(trigger);
+        } catch (err) {
+          console.error('Failed to initialize tooltip for', trigger, err);
+        }
+      });
+      
+      return true;
+    } catch (err) {
+      console.error('Error initializing tooltips:', err);
+      return false;
+    }
+  };
+
+  // Initialize close button handlers
+  const initCloseButtons = () => {
+    try {
+      const closeButtons = document.querySelectorAll('[data-tooltip-close]');
+      closeButtons.forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();      // prevent default button behavior
+          e.stopPropagation();     // prevent document click from firing
+          
+          const tooltip = btn.closest('.tooltip');
+          if (!tooltip) {
+            return console.error('Close button has no .tooltip parent');
+          }
+          
+          // hide immediately
+          tooltip.removeAttribute('data-show');
+          tooltip.setAttribute('aria-hidden', 'true');
+          tooltip.hidden = true;
+        });
+      });
+      
+      return true;
+    } catch (err) {
+      console.error('Error initializing close buttons:', err);
+      return false;
+    }
+  };
+
+  // Always use DOMContentLoaded for initialization
+  document.addEventListener('DOMContentLoaded', () => {
+    initTooltips();
+    initCloseButtons();
+  });
+
+  // Return API for possible re-initialization
+  return {
+    init: () => {
+      initTooltips();
+      initCloseButtons();
+    }
+  };
+};
+
+// Auto-initialize
+const tooltipSystem = initTooltipSystem();
+  </script>
+</body>
+
+</html>

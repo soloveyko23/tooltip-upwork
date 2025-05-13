@@ -1,0 +1,192 @@
+/* === Tooltip === */
+
+@font-face {
+  font-family: 'Make It Sans Web';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/MakeItSansWebRegular.woff2') format('woff2'),
+       url('./fonts/MakeItSansWebRegular.woff')  format('woff');
+  font-display: swap;
+}
+
+body {
+  font-family: 'Make It Sans Web', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  max-width: 250px;
+  padding: 0;
+  overflow: visible; /* arrow extends beyond boundaries */
+  transform: translateY(8px);
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out,
+    visibility 0.2s;
+  pointer-events: none;
+  
+  // Open state
+  &[data-show] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  // Gradient strip at the top
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 8px;
+    filter: blur(3px);
+    z-index: -1;
+    background: linear-gradient(
+      to right,
+      #00DFFF 0%,
+      #00FFD0 30%,
+      #F5F200 70%,
+      #FF9015 100%
+    );
+  }
+  
+  // Body
+  &__body {
+    padding: 16px;
+    position: relative;
+    z-index: 150;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.35);
+  }
+  
+  // Header
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+  
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  &__close {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #333;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    &:hover {
+      opacity: 0.7;
+      transform: scale(1.1);
+    }
+  }
+  
+  // Content
+  &__content {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #333;
+    
+    p {
+      margin-bottom: 5px;
+      margin-top: 0;
+    }
+    
+    ul {
+      margin: 0 0 10px 10px;
+      padding-left: 1rem;
+    }
+    
+    li {
+      margin-bottom: 6px;
+    }
+  }
+  
+  // Read more link
+  &__read-more {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333;
+    text-decoration: underline;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  
+  // Arrow
+  &__arrow {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    pointer-events: none;
+    transform: rotate(45deg);
+  }
+}
+
+// Positioning variations
+.tooltip {
+  // For top and bottom positions
+  &--top,
+  &--bottom {
+    .tooltip__arrow {
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+    }
+  }
+  
+  // For left and right positions
+  &--left,
+  &--right {
+    .tooltip__arrow {
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
+    }
+  }
+}
+
+// Utility class
+.bold {
+  font-weight: 600;
+}

@@ -149,7 +149,6 @@ const initTooltipSystem = () => {
       this.hideTimeout = null;
 
       // Initially hide and set ARIA attributes
-      this.tooltip.hidden = true;
       this.tooltip.setAttribute('aria-hidden', 'true');
       this.trigger.setAttribute('aria-describedby', this.tooltip.id);
 
@@ -207,7 +206,6 @@ const initTooltipSystem = () => {
     _show = () => {
       try {
         clearTimeout(this.hideTimeout);
-        this.tooltip.hidden = false;
         this.tooltip.setAttribute('data-show', '');
         this.tooltip.setAttribute('aria-hidden', 'false');
         requestAnimationFrame(this._position);
@@ -228,7 +226,6 @@ const initTooltipSystem = () => {
         clearTimeout(this.hideTimeout);
         this.tooltip.removeAttribute('data-show');
         this.tooltip.setAttribute('aria-hidden', 'true');
-        this.tooltip.hidden = true;
       } catch (err) {
         console.error('Error hiding tooltip:', err);
       }
@@ -338,7 +335,6 @@ const initTooltipSystem = () => {
           // hide immediately
           tooltip.removeAttribute('data-show');
           tooltip.setAttribute('aria-hidden', 'true');
-          tooltip.hidden = true;
         });
       });
       

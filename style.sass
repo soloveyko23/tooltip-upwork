@@ -25,6 +25,10 @@ body
   transform: translateY(8px)
   transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s
   pointer-events: none
+  opacity: 0
+  visibility: hidden
+  transform: translateY(8px)
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)
   
   // Open state
   &[data-show]
@@ -32,6 +36,11 @@ body
     visibility: visible
     transform: translateY(0)
     pointer-events: auto
+    
+    // Анимация для градиентной полоски
+    &::before
+      transform: scaleX(1)
+      opacity: 1
   
   // Gradient strip at the top
   &::before
@@ -44,6 +53,10 @@ body
     filter: blur(3px)
     z-index: -1
     background: linear-gradient(to right, #00DFFF 0%, #00FFD0 30%, #F5F200 70%, #FF9015 100%)
+    transform: scaleX(0.8)
+    opacity: 0
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+    transform-origin: center
   
   // Body
   &__body
@@ -53,6 +66,13 @@ body
     background: #fff
     border-radius: 4px
     box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.35)
+    transform: scale(0.95)
+    opacity: 0
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+    
+  &[data-show] &__body
+    transform: scale(1)
+    opacity: 1
   
   // Header
   &__header
@@ -135,6 +155,11 @@ body
     z-index: 2
     pointer-events: none
     transform: rotate(45deg)
+    opacity: 0
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1)
+    
+  &[data-show] &__arrow
+    opacity: 1
 
 // Positioning variations
 .tooltip
@@ -155,3 +180,4 @@ body
 // Utility class
 .bold
   font-weight: 600
+ 
